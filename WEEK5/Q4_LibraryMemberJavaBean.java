@@ -1,0 +1,56 @@
+public class Q4_LibraryMemberJavaBean {
+
+    static class LibraryMember {
+        private String membershipId;
+        private String name;
+        private boolean premiumMember;
+        private String securityAnswerHash;
+
+        public LibraryMember() {
+        }
+
+        public String getMembershipId() {
+            return membershipId;
+        }
+
+        public void setMembershipId(String id) {
+            if (membershipId == null)
+                membershipId = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public boolean isPremiumMember() {
+            return premiumMember;
+        }
+
+        public void setPremiumMember(boolean premium) {
+            premiumMember = premium;
+        }
+
+        public void setSecurityAnswer(String answer) {
+            securityAnswerHash = Integer.toHexString(answer.hashCode());
+        }
+    }
+
+    public static void main(String[] args) {
+        LibraryMember m = new LibraryMember();
+
+        m.setMembershipId("LIB-8841");
+        m.setName("Priya Nair");
+        m.setPremiumMember(true);
+
+        m.setMembershipId("FAKE-0000");
+        m.setSecurityAnswer("BlueMountain");
+
+        System.out.println("Membership ID: " + m.getMembershipId());
+        System.out.println("Name: " + m.getName());
+        System.out.println("Premium Member: " + m.isPremiumMember());
+    }
+}
